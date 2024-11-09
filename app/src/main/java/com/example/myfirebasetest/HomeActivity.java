@@ -3,14 +3,10 @@ package com.example.myfirebasetest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +22,7 @@ public class HomeActivity extends AppCompatActivity implements FlashCardAdapter.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        recyclerView = findViewById(R.id.flashcardrecyclerview);
+        recyclerView = findViewById(R.id.flashcardRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         databaseHelper = new DatabaseHelper(this);
@@ -40,7 +36,7 @@ public class HomeActivity extends AppCompatActivity implements FlashCardAdapter.
         loadFlashcards();
 
         // Floating Action Button for adding a new flashcard
-        FloatingActionButton fab = findViewById(R.id.fab2);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> {
             // Launch AddFlashCardActivity to add a new flashcard
             Intent intent = new Intent(HomeActivity.this, AddFlashCardActivity.class);
@@ -69,7 +65,8 @@ public class HomeActivity extends AppCompatActivity implements FlashCardAdapter.
         // Launch EditFlashCardActivity with the flashcard data to edit
         Intent intent = new Intent(HomeActivity.this, EditFlashCardActivity.class);
         intent.putExtra("flashcard_id", flashCard.getId());
-        startActivityForResult(intent, 2);  // Pass a different request code for editing
+        // Start the activity for editing the flashcard
+        startActivityForResult(intent, 2);  // Use a different request code for editing
     }
 
     @Override
@@ -86,7 +83,7 @@ public class HomeActivity extends AppCompatActivity implements FlashCardAdapter.
 
         // Check if the result comes from AddFlashCardActivity or EditFlashCardActivity
         if ((requestCode == 1 || requestCode == 2) && resultCode == RESULT_OK) {
-            // Refresh the list after adding/editing a flashcard
+            // Refresh the list after adding or editing a flashcard
             loadFlashcards();
         }
     }

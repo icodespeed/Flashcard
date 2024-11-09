@@ -4,13 +4,16 @@
     android:layout_height="match_parent">
 
     <!-- RecyclerView to display the flashcards -->
+
+    <!-- Button to add a new flashcard -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/flashcardRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/fab" />
+        android:layout_above="@id/fab"
+        android:layout_marginBottom="40dp" />
 
-    <!-- Button to add a new flashcard -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -20,14 +23,16 @@
         android:layout_margin="16dp"
         android:src="@drawable/ic_add" />
 
-    <!-- Button to view flashcards (to be added) -->
+    <!-- Button to view flashcards, positioned at the bottom -->
     <Button
         android:id="@+id/viewFlashCardButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Flashcards"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/fab" />
+        android:layout_marginEnd="174dp"
+        android:layout_marginBottom="16dp"
+        android:layout_toStartOf="@id/fab"
+        android:text="View Flashcards" />
 
 </RelativeLayout>

@@ -49,7 +49,7 @@ android:gravity="center">
 
     <!-- Mark as Known Button -->
 <Button
-android:id="@+id/markasknownbutton2"
+android:id="@+id/markAsKnownButton"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Mark as Known"
@@ -63,7 +63,7 @@ android:id="@+id/shuffleButton"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:text="Shuffle"
-android:layout_below="@+id/markasknownbutton2"
+android:layout_below="@+id/markAsKnownButton"
 android:layout_marginTop="10dp"
 android:layout_centerHorizontal="true"/>
 
