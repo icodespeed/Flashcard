@@ -11,37 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.MyFirebaseTest"
         tools:targetApi="31">
-
+        <activity
+            android:name=".DatabaseHelper"
+            android:exported="false" />
         <!-- Splash Activity as the launcher -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- HomeActivity (After splash screen) -->
+        </activity> <!-- HomeActivity (After splash screen) -->
         <activity
             android:name=".HomeActivity"
-            android:exported="true" />
-
-        <!-- AddFlashCardActivity (For adding new flashcards) -->
+            android:exported="true" /> <!-- AddFlashCardActivity (For adding new flashcards) -->
         <activity
             android:name=".AddFlashCardActivity"
-            android:exported="false" />
-
-        <!-- EditFlashCardActivity (For editing existing flashcards) -->
+            android:exported="false" /> <!-- EditFlashCardActivity (For editing existing flashcards) -->
         <activity
             android:name=".EditFlashCardActivity"
             android:exported="false" />
-
-        <!-- FlashCard is not an activity, remove it if it's a model class -->
-        <!-- <activity
-            android:name=".FlashCard"
-            android:exported="false" /> -->
-
     </application>
 
 </manifest>
