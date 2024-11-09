@@ -1,7 +1,7 @@
 package com.example.myfirebasetest;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,13 +23,17 @@ public class HomeActivity extends AppCompatActivity implements FlashCardAdapter.
         recyclerView = findViewById(R.id.flashcardRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        flashCardList = new ArrayList<>(); // Load data from database here
+        // Dummy data for testing; replace with data from a database
+        flashCardList = new ArrayList<>();
+        flashCardList.add(new FlashCard(1, "What is Java?", "Java is a programming language."));
+        flashCardList.add(new FlashCard(2, "What is Android?", "Android is an operating system for mobile devices."));
+
         adapter = new FlashCardAdapter(this, flashCardList, this);
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> {
-            // Launch Add FlashCard Activity
+            // Launch AddFlashCardActivity to add a new flashcard
             Intent intent = new Intent(HomeActivity.this, AddFlashCardActivity.class);
             startActivity(intent);
         });
@@ -45,7 +49,6 @@ public class HomeActivity extends AppCompatActivity implements FlashCardAdapter.
 
     @Override
     public void onDelete(FlashCard flashCard) {
-        // Delete flashCard from database and update list
         flashCardList.remove(flashCard);
         adapter.notifyDataSetChanged();
     }
