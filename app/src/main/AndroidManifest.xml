@@ -12,9 +12,11 @@
         android:theme="@style/Theme.MyFirebaseTest"
         tools:targetApi="31">
         <activity
-            android:name=".DatabaseHelper"
+            android:name=".FlashCardViewActivity"
             android:exported="false" />
-        <!-- Splash Activity as the launcher -->
+        <activity
+            android:name=".DatabaseHelper"
+            android:exported="false" /> <!-- Splash Activity as the launcher -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -29,7 +31,8 @@
             android:exported="true" /> <!-- AddFlashCardActivity (For adding new flashcards) -->
         <activity
             android:name=".AddFlashCardActivity"
-            android:exported="false" /> <!-- EditFlashCardActivity (For editing existing flashcards) -->
+            android:exported="false" />
+        <!-- EditFlashCardActivity (For editing existing flashcards) -->
         <activity
             android:name=".EditFlashCardActivity"
             android:exported="false" />

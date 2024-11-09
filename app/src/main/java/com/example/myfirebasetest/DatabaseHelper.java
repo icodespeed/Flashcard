@@ -52,6 +52,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Insert new flashcard into the database
     public long addFlashCard(String question, String answer) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        // Check if a flashcard with the same question already exists
+        if (isFlashCardExists(question)) {
+            return -1; // Return -1 if the flashcard already exists
+        }
+
         ContentValues values = new ContentValues();
         values.put(COLUMN_QUESTION, question);
         values.put(COLUMN_ANSWER, answer);
@@ -59,6 +65,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long id = db.insert(TABLE_FLASHCARDS, null, values);
         db.close();
         return id;
+    }
+
+    // Check if flashcard with the same question exists
+    private boolean isFlashCardExists(String question) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_FLASHCARDS, new String[]{COLUMN_ID},
+                COLUMN_QUESTION + "=?", new String[]{question}, null, null, null);
+
+        if (cursor != null && cursor.getCount() > 0) {
+            cursor.close();
+            return true;  // Flashcard exists
+        } else {
+            cursor.close();
+            return false; // Flashcard doesn't exist
+        }
     }
 
     // Get a flashcard by ID
@@ -100,6 +121,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_QUESTION, question);
         values.put(COLUMN_ANSWER, answer);
 
+        // Update the flashcard in the database
         return db.update(TABLE_FLASHCARDS, values, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
     }
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Flashcard -->
+<androidx.cardview.widget.CardView
+android:id="@+id/flashcardCard"
+android:layout_width="match_parent"
+android:layout_height="300dp"
+android:layout_centerInParent="true"
+android:layout_marginTop="80dp"
+app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    android:clickable="true"
+    android:focusable="true">
+
+<LinearLayout
+android:id="@+id/flashcardLayout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center">
+
+<!-- Front Side: Question -->
+<TextView
+    android:id="@+id/questionText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Question goes here"
+    android:textSize="24sp"
+    android:textAlignment="center"
+    android:visibility="visible"/>
+
+<!-- Back Side: Answer -->
+<TextView
+    android:id="@+id/answerText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Answer goes here"
+    android:textSize="24sp"
+    android:textAlignment="center"
+    android:visibility="gone"/>
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Mark as Known Button -->
+<Button
+android:id="@+id/markasknownbutton2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Mark as Known"
+android:layout_below="@id/flashcardCard"
+android:layout_marginTop="20dp"
+android:layout_centerHorizontal="true"/>
+
+
+<Button
+android:id="@+id/shuffleButton"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Shuffle"
+android:layout_below="@+id/markasknownbutton2"
+android:layout_marginTop="10dp"
+android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
